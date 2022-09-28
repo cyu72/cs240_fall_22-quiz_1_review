@@ -13,6 +13,7 @@ int main(){
  * QUESTION:
  * 1. What constructors do each of
  * these lines call?
+ **/
 
     Sample a(0, s1);
     Sample b(a);

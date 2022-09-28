@@ -21,7 +21,8 @@ class Sample{
          */
         Sample();
         Sample(int n, std::string const &str);
-        Sample(Sample const &s);
+        Sample(Sample const &s); // Const &s prevents you from modifiying s, however you do const &s because its more efficient that making a copy (in big cases)
+
 
         /**
          * QUESTION:
@@ -40,8 +41,8 @@ class Sample{
          * different in these two cases?
          */
 
-        void set_str_pointer_memory(std::string const &str);
-        std::string get_str_from_str_pointer() const;
+        void set_str_pointer_memory(std::string const &str); // promising not to change the string
+        std::string get_str_from_str_pointer() const; // promising not to change anything else in the class
 
         /**
          * QUESTION:
@@ -78,7 +79,7 @@ class Sample{
              * 10. What could happen if we didn't
              * have the above check?
              */
-            o << *(s.str_pointer);
+            o << *(s.str_pointer); // You wouldn't be able to dereference the pointer because its null (seg fault)
             return o;
         }
 

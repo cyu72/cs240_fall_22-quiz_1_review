@@ -1,6 +1,9 @@
 // QUESTION:
 // 11. Describe what this #include statement does
-#include "Sample.h"
+#include "Sample.h" // Copies everything from this file into current file
+// Can't wrap this entire file in class Sample{
+
+//} because you alredy defined this in sample.h(can only define once)
 
 // QUESTION:
 // 12. Why do we use 'Sample::'
@@ -45,6 +48,13 @@ Sample::Sample(Sample const &s){
     // doing, and what are we AVOIDING
     // with this?
     this->str_pointer = new std::string(*(s.str_pointer));
+
+    /*
+    Shallow Copy:
+    - Copies the address (If a changes then b changes)
+    Deep Copy:
+    - Points to another address in memory 
+    */
 
     // Hint: start from the inside of parenthesis
     // and work your way out.
@@ -146,7 +156,7 @@ Sample::~Sample(){
  * 25. What is the difference between the following lines:
  *
  * Sample *s1 = new Sample;
- * Sample s2 = s1;
+ * Sample *s2 = s1;
  *
  * and
  *
